@@ -35,7 +35,17 @@ addText = () => {
     render() {
         return (
         <div className="main">
-            
+            <input type="text" value={this.state.text} onChange={this.changeText}/>
+            <button onClick={this.addText}>Add</button>
+            {this.state.texts.map(task => (
+                <AddTask
+                    text={task.name}
+                    key={task.id}
+                    removeTask={() => this.remove(task.id)}
+                    className="div"
+
+                />
+            ))}
         </div>
 )
 
