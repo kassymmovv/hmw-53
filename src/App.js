@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import nanoid from 'nanoid'
+import AddTask from "./Components/AddTask/AddTask";
+import "./Components/AddTask/AddTask.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+    state = {
+            text: '',
+        texts:[
+            {name: 'wqeqwe', id: nanoid()},
+            {name: 'wqeqwe', id: nanoid()},
+            {name: 'wqeqwe', id: nanoid()},
+        ],
+
+    };
+changeText = event => {
+    this.setState({text: event.target.value})
+};
+addText = () => {
+    const texts = {
+        name: this.state.text,
+        id: nanoid()
+    };
+    this.setState({texts: [...this.state.texts, texts]})
+};
+    remove = id => {
+        const tasks = [...this.state.texts];
+        const taskId = tasks.findIndex(t => t.id === id);
+        tasks.splice(taskId, 1);
+        this.setState({texts:tasks});
+        console.log('asagaga')
+    };
+
+
+    render() {
+        return (
+        <div className="main">
+            
+        </div>
+)
+
+}}
 
 export default App;

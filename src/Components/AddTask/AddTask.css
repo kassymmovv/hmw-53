@@ -1,0 +1,11 @@
+.div{
+    display: flex;
+    width: 30%;
+    border: 1px solid;
+    flex-wrap: wrap;
+    margin: 1%;
+    justify-content: space-between;
+}
+.main{
+    margin-left: 40%;
+}
